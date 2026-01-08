@@ -1,0 +1,21 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended"
+  ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/^\\.python-version$/"
+      ],
+      "matchStrings": [
+        "^(?<currentValue>\\d+\\.\\d+)\\s*$"
+      ],
+      "depNameTemplate": "python{{currentValue}}-devel",
+      "packageNameTemplate": "python{{currentValue}}-devel",
+      "registryUrlTemplate": "https://dl.fedoraproject.org/pub/epel/9/Everything/x86_64/repodata/",
+      "datasourceTemplate": "rpm"
+    }
+  ]
+}
